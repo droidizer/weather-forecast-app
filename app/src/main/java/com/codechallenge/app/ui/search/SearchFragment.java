@@ -17,7 +17,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.jetbrains.annotations.NotNull;
 
-import static com.codechallenge.app.FragmentProvider.showWeatherFragment;
+import static com.codechallenge.app.utils.FragmentProvider.showWeatherFragment;
 
 /**
  * Created by greymatter on 18/04/16.

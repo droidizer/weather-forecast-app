@@ -22,7 +22,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.jetbrains.annotations.NotNull;
 
-import static com.codechallenge.app.FragmentProvider.showSearchFragment;
+import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
 import static com.codechallenge.app.network.RequestProvider.weatherForecast;
 import static com.codechallenge.app.network.RequestProvider.weatherToday;
 
