@@ -2,15 +2,19 @@ package com.codechallenge.app.network;
 
 import android.support.annotation.NonNull;
 import com.codechallenge.app.Environment;
+import com.codechallenge.app.R;
 import com.codechallenge.app.models.Forecast;
 import com.codechallenge.app.models.WeatherModel;
+import com.common.android.utils.ContextHelper;
 import com.common.android.utils.interfaces.ICallback;
 import com.orhanobut.wasp.*;
 import com.orhanobut.wasp.utils.NetworkMode;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 import java.net.CookiePolicy;
 
 import static com.common.android.utils.ContextHelper.getContext;
+import static de.keyboardsurfer.android.widget.crouton.Crouton.makeText;
 
 public class RequestProvider {
 
@@ -52,6 +56,7 @@ public class RequestProvider {
 
             @Override
             public void onError(WaspError waspError) {
+                makeText(ContextHelper.getContext(), R.string.error, Style.ALERT).show();
 
             }
         });
@@ -65,7 +70,7 @@ public class RequestProvider {
 
                     @Override
                     public void onError(WaspError waspError) {
-
+                        makeText(ContextHelper.getContext(), R.string.error, Style.ALERT).show();
                     }
                 });
     }
