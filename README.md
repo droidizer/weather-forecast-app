@@ -1,5 +1,5 @@
 # Weather Forecast Application
-
+![2016-04-25 17 02 28](https://github.com/droidizer/weather-forecast-app/blob/master/app/src/main/res/raw/Screenshot_2016-04-25-18-13-48.png)
 ## Introduction
 
 ## Table of contents
