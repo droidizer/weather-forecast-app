@@ -1,7 +1,8 @@
 # Weather Forecast Application
+
+<img src="https://cloud.githubusercontent.com/assets/3032751/14792945/071bd188-0b1d-11e6-848e-59b09c43231d.png" width="23%"></img>
 <img src="https://cloud.githubusercontent.com/assets/3032751/14792946/071e9198-0b1d-11e6-8b3a-afe425505047.png" width="23%"></img>
 <img src="https://cloud.githubusercontent.com/assets/3032751/14792944/07195dae-0b1d-11e6-9312-bee6634b0ce4.png" width="23%"></img> 
-<img src="https://cloud.githubusercontent.com/assets/3032751/14792945/071bd188-0b1d-11e6-848e-59b09c43231d.png" width="23%"></img>
 <img src="https://cloud.githubusercontent.com/assets/3032751/14792947/07391266-0b1d-11e6-9524-7f2e7b44b64e.png" width="23%"></img>
 
 ## Introduction
