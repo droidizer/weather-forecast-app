@@ -23,9 +23,7 @@
 * [Backend](#backend)
 * [Contact](#contact)
 
-## Known Issues
-
-I recommend taking a look at missing features:
+# Features
 
 1. User entered city.
 
@@ -36,6 +34,12 @@ I recommend taking a look at missing features:
 4. Saving city for pre-populating weather next time user starts the app.
 
 5. Additional case like connectivity is handled.
+
+## Known Issues
+
+I recommend taking a look at missing features:
+
+1. Auto complete city or city selection from list.
 
 ## How to install
 
