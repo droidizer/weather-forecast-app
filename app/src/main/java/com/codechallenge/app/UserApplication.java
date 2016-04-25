@@ -8,9 +8,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import com.common.android.utils.ContextHelper;
 
-/**
- * Created by greymatter on 14/03/16.
- */
 public class UserApplication extends Application {
     final ActivityLifecycleCallbacks activityLifecycleCallbacks = createActivityCallBacks();
 

@@ -53,13 +53,16 @@ dependencies {
         exclude group: 'com.mcxiaoke.volley'
         exclude group: 'com.intellij.annotations'
     }
+
     // check connectivity
     compile('com.zplesac:connectionbuddy:1.0.7@aar')
 
     // injecting views
     compile 'com.jakewharton:butterknife:7.0.1'
+
     //networking
     compile 'com.github.orhanobut:wasp:1.15'
+
     // app message
     compile('de.keyboardsurfer.android.widget:crouton:1.8.5@aar')
 

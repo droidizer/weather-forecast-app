@@ -4,10 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by greymatter on 12/04/16.
- */
-
 public class Forecast {
 
     @SerializedName("dt")

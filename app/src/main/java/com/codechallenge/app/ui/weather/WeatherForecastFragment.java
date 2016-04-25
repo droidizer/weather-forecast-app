@@ -11,38 +11,30 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import butterknife.Bind;
-import com.common.android.utils.ContextHelper;
-import com.common.android.utils.interfaces.ICallback;
-import com.common.android.utils.ui.recyclerView.DataBindAdapter;
 import com.codechallenge.app.R;
 import com.codechallenge.app.models.Forecast;
 import com.codechallenge.app.models.WeatherModel;
 import com.codechallenge.app.ui.BaseFragment;
+import com.codechallenge.app.utils.FragmentProvider;
+import com.common.android.utils.ContextHelper;
+import com.common.android.utils.interfaces.ICallback;
+import com.common.android.utils.ui.recyclerView.DataBindAdapter;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.jetbrains.annotations.NotNull;
 
-import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
 import static com.codechallenge.app.network.RequestProvider.weatherForecast;
-import static com.codechallenge.app.network.RequestProvider.weatherToday;
+import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
 
-/**
- * Created by greymatter on 14/04/16.
- */
-public class WeatherFragment extends BaseFragment{
+public class WeatherForecastFragment extends BaseFragment{
 
     private static final String CITY_NAME = "CITY_NAME";
     @NonNull
     @Bind(R.id.recyclerView)
     RecyclerView forecastList;
-
     @NonNull
     @Bind(R.id.cityText)
     TextView city;
-
-    @NonNull
-    @Bind(R.id.forecastDesc)
-    TextView forecastDesc;
 
     DataBindAdapter<Forecast> weatherAdapter;
     private String cityName;
@@ -54,25 +46,17 @@ public class WeatherFragment extends BaseFragment{
 
         if(TextUtils.isEmpty(retrieveCity()))
             showSearchFragment();
-
-        city.setText(cityName);
-        forecastDesc.setText(R.string.current);
-        setupRecyclerView();
-        currentForecast();
         setHasOptionsMenu(true);
+        city.setText(cityName);
+        setupRecyclerView();
+        prepForecast(R.string.five_days, 5);
     }
 
-
     private void setupRecyclerView() {
-        forecastList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        forecastList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         weatherAdapter = new DataBindAdapter<>();
         forecastList.setHasFixedSize(true);
         forecastList.setAdapter(weatherAdapter);
-    }
-
-    @Override
-    public int getLayout() {
-        return R.layout.fragment_weather;
     }
 
     @Override
@@ -93,7 +77,7 @@ public class WeatherFragment extends BaseFragment{
                 return true;
 
             case R.id.seven_days:
-               prepForecast(R.string.seven_days, 7);
+                prepForecast(R.string.seven_days, 7);
 
                 return true;
 
@@ -106,22 +90,17 @@ public class WeatherFragment extends BaseFragment{
         }
     }
 
+    @Override
+    public int getLayout() {
+        return R.layout.fragment_weather;
+    }
+
     private void currentForecast() {
-        weatherAdapter.clear();
-
-        weatherToday(cityName, new ICallback<Forecast>() {
-            @Override
-            public void onSuccess(Forecast weatherForecast) {
-                if (weatherForecast == null)
-                    return;
-                weatherAdapter.add(weatherForecast, WeatherBinder.class);
-
-            }});
+        FragmentProvider.showCurrenForecastFragment(cityName);
     }
 
     private void prepForecast(@NonNull final int stringResId, @NonNull final int count) {
         weatherAdapter.clear();
-        forecastDesc.setText(stringResId);
         Crouton.makeText(ContextHelper.getContext(), stringResId, Style.INFO).show();
 
         weatherForecast(cityName, count, new ICallback<WeatherModel>() {
@@ -141,6 +120,7 @@ public class WeatherFragment extends BaseFragment{
         inflater.inflate(R.menu.main_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
+
 private String retrieveCity(){
     SharedPreferences sharedPref = getActivity().getPreferences(ContextHelper.getContext().MODE_PRIVATE);
     return sharedPref.getString(getString(R.string.city), "");

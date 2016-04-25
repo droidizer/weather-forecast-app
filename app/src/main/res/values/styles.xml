@@ -2,7 +2,7 @@
 
     <!-- Application theme. -->
         <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
-            <item name="colorPrimary">#673AB7</item>
+            <item name="colorPrimary">#2962FF</item>
             <item name="actionBarStyle">@style/MyActionBar</item>
         </style>
 

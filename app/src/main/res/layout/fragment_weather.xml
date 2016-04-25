@@ -3,23 +3,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:paddingBottom="@dimen/activity_vertical_margin"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:paddingRight="@dimen/activity_horizontal_margin"
-              android:paddingTop="@dimen/activity_horizontal_margin"
               tools:context=".MainActivity"
               android:orientation="vertical" >
 
     <TextView
             android:id="@+id/cityText"
             style="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-    </TextView>
-
-    <TextView
-            android:id="@+id/forecastDesc"
-            style="?android:attr/textAppearanceMedium"
-            android:layout_marginBottom="@dimen/padding_10"
+            android:layout_marginBottom="@dimen/padding_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
     </TextView>

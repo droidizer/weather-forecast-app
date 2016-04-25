@@ -8,6 +8,7 @@ import com.common.android.utils.ContextHelper;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
+import static com.codechallenge.app.utils.FragmentProvider.showCurrenForecastFragment;
 import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
 import static com.codechallenge.app.utils.FragmentProvider.showWeatherFragment;
 import static com.common.android.utils.ContextHelper.getContext;
@@ -24,7 +25,7 @@ public class MainActivity extends BaseActivity {
         cityName = retrieveCity();
         if(TextUtils.isEmpty(cityName))
             showSearchFragment();
-        else showWeatherFragment(cityName);
+        else showCurrenForecastFragment(cityName);
 
         // Keep the screen always on
         if (com.common.android.utils.BuildConfig.DEBUG)

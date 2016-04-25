@@ -3,15 +3,14 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context=".MainActivity" >
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                tools:context=".MainActivity">
+
     <TextView
             android:id="@+id/welcomeText"
             style="?android:attr/textAppearanceMedium"
-            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/padding_top"
             android:paddingBottom="@dimen/padding_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,11 +22,19 @@
             android:id="@+id/search"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:hint="@string/search_hint"
             android:textColorHint="@color/light_gray"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/welcomeText"
-            android:inputType="text"
-            android:imeOptions="actionSend" />
+            android:inputType="text"/>
 
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_now"
+            android:text="SEARCH"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_below="@+id/search"
+            android:layout_centerHorizontal="true"/>
 </RelativeLayout>

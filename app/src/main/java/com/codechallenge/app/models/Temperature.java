@@ -2,9 +2,6 @@ package com.codechallenge.app.models;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by greymatter on 19/04/16.
- */
 public class Temperature {
 
     @SerializedName("day")

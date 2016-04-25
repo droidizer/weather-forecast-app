@@ -6,9 +6,6 @@ import com.orhanobut.wasp.utils.WaspRetryPolicy;
 
 import java.util.Map;
 
-/**
- * Created by greymatter on 14/03/16.
- */
 public class RemoteRequestInterceptor implements RequestInterceptor {
     @Override
     public void onHeadersAdded(Map<String, String> map) {

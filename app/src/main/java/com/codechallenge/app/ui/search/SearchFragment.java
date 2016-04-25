@@ -1,27 +1,31 @@
 package com.codechallenge.app.ui.search;
 
 import android.content.SharedPreferences;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import android.widget.VideoView;
 import butterknife.Bind;
+import butterknife.OnClick;
 import com.codechallenge.app.R;
 import com.codechallenge.app.ui.BaseFragment;
 import com.common.android.utils.ContextHelper;
+import com.common.android.utils.extensions.ResourceExtensions;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 import org.jetbrains.annotations.NotNull;
 
-import static com.codechallenge.app.utils.FragmentProvider.showWeatherFragment;
+import static com.codechallenge.app.utils.FragmentProvider.showCurrenForecastFragment;
 
-/**
- * Created by greymatter on 18/04/16.
- */
 public class SearchFragment extends BaseFragment {
 
     @NonNull
@@ -31,27 +35,22 @@ public class SearchFragment extends BaseFragment {
     @Override
     protected void onViewCreated(Bundle savedInstanceState) {
         Crouton.makeText(ContextHelper.getContext(), R.string.user_message, Style.INFO).show();
+        DisplayMetrics metrics = new DisplayMetrics();
+        ContextHelper.getContext().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+    }
 
-        search.setOnEditorActionListener(new OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                boolean handled = false;
-                if (actionId == EditorInfo.IME_ACTION_SEND) {
-                    final String citySearch = search.getText().toString();
-                    if(!TextUtils.isEmpty(citySearch))
-                    showWeatherFragment(citySearch);
-                    handled = true;
-                    if(!TextUtils.isEmpty(citySearch))
-                    saveCity(citySearch);
-                }
-                return handled;
-            }
-        });
+    @OnClick(R.id.search_now)
+    public void onSearchClick() {
+        final String citySearch = search.getText().toString();
+        if (!TextUtils.isEmpty(citySearch))
+            showCurrenForecastFragment(citySearch);
+        if (!TextUtils.isEmpty(citySearch))
+            saveCity(citySearch);
     }
 
     @Override
     public int getLayout() {
-        return R.layout.search;
+        return R.layout.search_fragment;
     }
 
     @NotNull
@@ -66,5 +65,4 @@ public class SearchFragment extends BaseFragment {
         editor.putString(getString(R.string.city), cityName);
         editor.commit();
     }
-
 }
