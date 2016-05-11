@@ -25,7 +25,7 @@
 
 # Features
 
-1. User entered city.
+1. User entered AutoComplete city using Google Places API. 
 
 2. Current weather.
 
