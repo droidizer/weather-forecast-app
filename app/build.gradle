@@ -1,21 +1,8 @@
 apply plugin: 'com.android.application'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
-    }
-}
-
-repositories {
-    jcenter()
-}
-
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.codechallenge.app"
@@ -24,12 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    signingConfigs {
-        debug {
-        }
-        release {
-        }
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -47,6 +29,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
     compile 'com.android.support:appcompat-v7:23.2.0'
+
     // utilities
     compile('com.github.kibotu:common.android.utils:0.3.6') {
         exclude module: 'support-v4'

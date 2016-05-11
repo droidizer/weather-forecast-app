@@ -1,8 +1,5 @@
 package com.codechallenge.app;
 
-/**
- * Created by greymatter on 14/03/16.
- */
 public enum Environment {
 
     Development(Constants.WEATHER_BASE_URL);
@@ -19,3 +16,4 @@ public enum Environment {
     }
 
 }
+

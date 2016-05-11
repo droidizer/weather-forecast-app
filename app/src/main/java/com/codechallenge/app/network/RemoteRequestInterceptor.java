@@ -19,7 +19,7 @@ public class RemoteRequestInterceptor implements RequestInterceptor {
 
     @Override
     public WaspRetryPolicy getRetryPolicy() {
-        return new WaspRetryPolicy(7200, 2, 1.5f);
+        return new WaspRetryPolicy(1200, 2, 1.5f);
     }
 
     @Override

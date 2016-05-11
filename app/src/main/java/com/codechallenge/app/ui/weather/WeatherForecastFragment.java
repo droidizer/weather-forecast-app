@@ -1,6 +1,5 @@
 package com.codechallenge.app.ui.weather;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,11 +23,14 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 import org.jetbrains.annotations.NotNull;
 
 import static com.codechallenge.app.network.RequestProvider.weatherForecast;
+import static com.codechallenge.app.utils.AppUtils.retrieveCity;
 import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
 
 public class WeatherForecastFragment extends BaseFragment{
 
     private static final String CITY_NAME = "CITY_NAME";
+    private static final int DEFAULT_COUNT = 5;
+
     @NonNull
     @Bind(R.id.recyclerView)
     RecyclerView forecastList;
@@ -46,10 +48,13 @@ public class WeatherForecastFragment extends BaseFragment{
 
         if(TextUtils.isEmpty(retrieveCity()))
             showSearchFragment();
+
         setHasOptionsMenu(true);
+        setRetainInstance(true);
+
         city.setText(cityName);
         setupRecyclerView();
-        prepForecast(R.string.five_days, 5);
+        prepForecast(R.string.five_days, DEFAULT_COUNT);
     }
 
     private void setupRecyclerView() {
@@ -121,10 +126,6 @@ public class WeatherForecastFragment extends BaseFragment{
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-private String retrieveCity(){
-    SharedPreferences sharedPref = getActivity().getPreferences(ContextHelper.getContext().MODE_PRIVATE);
-    return sharedPref.getString(getString(R.string.city), "");
-}
     @NotNull
     @Override
     public String tag() {

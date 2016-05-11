@@ -22,7 +22,6 @@ public class FragmentProvider {
         final BaseFragment fragment = newInstance(SearchFragment.class, bundle);
         final FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fragment_container, fragment, fragment.tag());
-        ft.addToBackStack(fragment.tag());
         ft.commit();
     }
 

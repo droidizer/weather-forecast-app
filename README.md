@@ -39,14 +39,9 @@
 
 I recommend taking a look at missing features:
 
-1. Auto complete city or city selection from list.
+No tests. 
 
 ## How to install
-
-### HockeyApp
-
-[Download build here:](https://rink.hockeyapp.net/apps/18f6915099a04d97a8da19d9a43e32a2/app_versions/1)
-
 
 ### Gradle
 

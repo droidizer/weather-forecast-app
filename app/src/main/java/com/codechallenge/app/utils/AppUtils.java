@@ -1,12 +1,16 @@
 package com.codechallenge.app.utils;
 
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.widget.TextView;
 import com.codechallenge.app.R;
+import com.common.android.utils.ContextHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+
+import static com.common.android.utils.ContextHelper.getContext;
 
 public class AppUtils {
 
@@ -19,6 +23,18 @@ public class AppUtils {
 
     public static int kelvinToCelcius(@NonNull final double temperature) {
         return (int)((temperature) - 273.15); // Temperature metric conversion
+    }
+
+    public static void saveCity(@NonNull final String cityName) {
+        SharedPreferences sharedPref = getContext().getPreferences(getContext().MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(String.valueOf((R.string.city)), cityName);
+        editor.commit();
+    }
+
+    public static String retrieveCity(){
+        SharedPreferences sharedPref = getContext().getPreferences(ContextHelper.getContext().MODE_PRIVATE);
+        return sharedPref.getString(String.valueOf((R.string.city)), "");
     }
 
     public static void setWeatherTypeFace(@NonNull final TextView weatherIcon, @NonNull final  String icon) {
