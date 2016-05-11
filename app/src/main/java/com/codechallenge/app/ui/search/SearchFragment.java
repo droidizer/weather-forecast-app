@@ -38,8 +38,7 @@ public class SearchFragment extends BaseFragment {
     @NonNull
     @Bind(R.id.search)
     AutoCompleteTextView searchCity;
-    @NonNull
-    @Bind(R.id.clickedItem)
+
     TextView clickedItem;
     ArrayAdapter<String> adapter;
     List<String> city;
@@ -126,7 +125,6 @@ public class SearchFragment extends BaseFragment {
                                     int position, long id) {
                 if (adapter != null) {
                     cityName = prediction.get(position).terms.get(0).value;
-                    clickedItem.setText(cityName);
                 }
             }
         };
