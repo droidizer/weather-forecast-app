@@ -14,6 +14,7 @@ import com.codechallenge.app.models.Forecast;
 import com.codechallenge.app.ui.BaseFragment;
 import com.codechallenge.app.utils.AppUtils;
 import com.common.android.utils.ContextHelper;
+import com.common.android.utils.extensions.DeviceExtensions;
 import com.common.android.utils.interfaces.ICallback;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -24,30 +25,38 @@ import java.util.Locale;
 
 import static com.codechallenge.app.network.RequestProvider.weatherToday;
 import static com.codechallenge.app.utils.AppUtils.*;
-import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
-import static com.codechallenge.app.utils.FragmentProvider.showWeatherFragment;
+import static com.codechallenge.app.ui.helpers.FragmentProvider.showSearchFragment;
+import static com.codechallenge.app.ui.helpers.FragmentProvider.showWeatherFragment;
 
 /**
  * Created by greymatter on 21/04/16.
  */
 public class CurrentWeatherFragment extends BaseFragment {
-
+@NonNull
     @Bind(R.id.date)
     TextView date;
+    @NonNull
     @Bind(R.id.dayTemp)
     TextView dayTemp;
+    @NonNull
     @Bind(R.id.weather_icon)
     TextView weatherIcon;
+    @NonNull
     @Bind(R.id.pressure)
     TextView dayPressure;
+    @NonNull
     @Bind(R.id.humidity)
     TextView dayHumidity;
+    @NonNull
     @Bind(R.id.minTemp)
     TextView minTemp;
+    @NonNull
     @Bind(R.id.maxTemp)
     TextView maxTemp;
+    @NonNull
     @Bind(R.id.cityText)
     TextView cityName;
+    @NonNull
     @Bind(R.id.weather_report)
     TextView forecastDesc;
 
@@ -167,4 +176,9 @@ public class CurrentWeatherFragment extends BaseFragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    @Override
+    public void onBackPressed() {
+        DeviceExtensions.hideKeyboard();
+        ContextHelper.getContext().onBackPressed();
+    }
 }

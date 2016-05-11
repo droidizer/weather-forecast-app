@@ -31,5 +31,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         DeviceExtensions.hideKeyboard();
+        onBackPressed();
     }
 }

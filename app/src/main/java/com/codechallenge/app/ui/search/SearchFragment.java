@@ -20,6 +20,7 @@ import com.codechallenge.app.models.Prediction;
 import com.codechallenge.app.ui.BaseFragment;
 import com.codechallenge.app.utils.AppUtils;
 import com.common.android.utils.ContextHelper;
+import com.common.android.utils.extensions.DeviceExtensions;
 import com.common.android.utils.interfaces.ICallback;
 import com.common.android.utils.logging.Logger;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.codechallenge.app.network.RequestProvider.searchCity;
-import static com.codechallenge.app.utils.FragmentProvider.showCurrenForecastFragment;
+import static com.codechallenge.app.ui.helpers.FragmentProvider.showCurrenForecastFragment;
 import static de.keyboardsurfer.android.widget.crouton.Crouton.makeText;
 
 
@@ -125,6 +126,7 @@ public class SearchFragment extends BaseFragment {
                                     int position, long id) {
                 if (adapter != null) {
                     cityName = prediction.get(position).terms.get(0).value;
+                    DeviceExtensions.hideKeyboard();
                 }
             }
         };
@@ -137,6 +139,8 @@ public class SearchFragment extends BaseFragment {
 
     @OnClick(R.id.search_now)
     public void onSearchClick(){
+        DeviceExtensions.hideKeyboard();
+
         if(prediction==null)
             return;
 
@@ -159,4 +163,9 @@ public class SearchFragment extends BaseFragment {
         return String.valueOf(R.string.app_name);
     }
 
+    @Override
+    public void onBackPressed() {
+            DeviceExtensions.hideKeyboard();
+            ContextHelper.getContext().onBackPressed();
+    }
 }

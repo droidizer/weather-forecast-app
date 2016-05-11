@@ -14,8 +14,9 @@ import com.codechallenge.app.R;
 import com.codechallenge.app.models.Forecast;
 import com.codechallenge.app.models.WeatherModel;
 import com.codechallenge.app.ui.BaseFragment;
-import com.codechallenge.app.utils.FragmentProvider;
+import com.codechallenge.app.ui.helpers.FragmentProvider;
 import com.common.android.utils.ContextHelper;
+import com.common.android.utils.extensions.DeviceExtensions;
 import com.common.android.utils.interfaces.ICallback;
 import com.common.android.utils.ui.recyclerView.DataBindAdapter;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static com.codechallenge.app.network.RequestProvider.weatherForecast;
 import static com.codechallenge.app.utils.AppUtils.retrieveCity;
-import static com.codechallenge.app.utils.FragmentProvider.showSearchFragment;
+import static com.codechallenge.app.ui.helpers.FragmentProvider.showSearchFragment;
 
 public class WeatherForecastFragment extends BaseFragment{
 
@@ -130,5 +131,11 @@ public class WeatherForecastFragment extends BaseFragment{
     @Override
     public String tag() {
         return String.valueOf(R.string.app_name);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        ContextHelper.getContext().onBackPressed();
     }
 }

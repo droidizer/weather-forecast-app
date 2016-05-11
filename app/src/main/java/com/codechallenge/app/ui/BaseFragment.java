@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import butterknife.ButterKnife;
+import com.codechallenge.app.ui.helpers.IBackPress;
 import com.common.android.utils.ContextHelper;
 import com.common.android.utils.extensions.DeviceExtensions;
 import com.common.android.utils.interfaces.ILayout;
@@ -22,7 +23,7 @@ import static com.common.android.utils.ContextHelper.getContext;
 /**
  * Created by greymatter on 01/03/16.
  */
-public abstract class BaseFragment extends Fragment implements ILayout, ILogTag {
+public abstract class BaseFragment extends Fragment implements ILayout, ILogTag, IBackPress {
     protected View rootView;
 
     public BaseFragment() {

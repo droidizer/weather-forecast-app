@@ -1,4 +1,4 @@
-package com.codechallenge.app.utils;
+package com.codechallenge.app.ui.helpers;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
