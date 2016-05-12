@@ -41,6 +41,8 @@ I recommend taking a look at missing features:
 
 No tests. 
 
+Design needs upgradation. 
+
 ## How to install
 
 ### Gradle
